@@ -1,0 +1,25 @@
+.grid-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+    gap: 0px;
+}
+
+.grid-nav-item{
+    background-color: #db6c34;
+    text-align: center;
+    height: 20px;
+    padding: 20px;
+}
+
+.grid-nav-item:hover{
+    background-color: #d84a03;
+}
+
+.grid-nav-item-link{
+    text-decoration: none;
+    color: black;
+}
+
+.hidden{
+    display: none;
+}
