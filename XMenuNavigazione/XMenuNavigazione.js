@@ -2,25 +2,94 @@ export class XMenuNavigazione extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
+        
+        const xmenuStorage = localStorage.getItem("xmenu") ?? "orizzontale";
+
         this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href="https://lucabonetti.altervista.org/XERP/CSS/XMenuNavigazione.css"></link>
+        
+        <div class="xmenu ${xmenuStorage}">
+            <button id="toggle-xmenu" class="${xmenuStorage === 'orizzontale' ? 'hidden' : ''}"><svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6H20M4 12H20M4 18H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <section class="grid-container">
-                <a class="grid-nav-item-link" href="https://lucabonetti.altervista.org/XERP/"><div class="grid-nav-item">HOMEPAGE</div></a>
-                <a class="grid-nav-item-link" href="https://lucabonetti.altervista.org/XERP/MAGAZZINO/"><div class="grid-nav-item">MAGAZZINO</div></a>
-                <a class="grid-nav-item-link" href="https://lucabonetti.altervista.org/XERP/ORDINI/"><div class="grid-nav-item">ORDINI</div></a>
-                <a class="grid-nav-item-link" href="https://lucabonetti.altervista.org/XERP/GESTIONE/"><div class="grid-nav-item">GESTIONE</div></a>
+                <a class="grid-nav-item-link" href="https://lucabonetti.altervista.org/XERP/"><div class="grid-nav-item"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M16.3382 1.94393L25.9705 9.82424L26.0201 9.8788C26.1701 10.0437 26.3998 10.3064 26.5943 10.6198C26.7798 10.9189 27 11.3686 27 11.8956V24.9976C27 26.1013 26.1068 27 25 27H18.7601C17.9317 27 17.2601 26.3284 17.2601 25.5V20.7939C17.2601 18.9948 15.8058 17.5405 14.0168 17.5405C12.2279 17.5405 10.7735 18.9948 10.7735 20.7939V25.5C10.7735 26.3284 10.102 27 9.27354 27H3C1.89318 27 1 26.1013 1 24.9976V11.7425C1 11.0901 1.36299 10.564 1.56986 10.3028C1.69049 10.1505 1.80873 10.0264 1.89631 9.94036C1.9407 9.89677 1.97877 9.86147 2.0074 9.83565C2.02175 9.8227 2.03384 9.81204 2.0433 9.80382L2.05551 9.79329L2.06007 9.7894L2.06278 9.7871C2.06278 9.7871 2.06356 9.78646 2.7075 10.5515L2.06356 9.78646L2.07352 9.77807L11.6288 1.94617C12.9452 0.685478 15.0206 0.684487 16.3382 1.94393ZM3.35246 11.3159L3.3468 11.3209C3.33673 11.33 3.31953 11.3459 3.29759 11.3674C3.25251 11.4117 3.19388 11.4736 3.13764 11.5446C3.07966 11.6178 3.038 11.6834 3.01374 11.7344C3.00661 11.7494 3.00238 11.7602 3 11.767V24.9976L3.00006 24.9992L3.0007 25H8.77354V20.7939C8.77354 17.8948 11.1188 15.5405 14.0168 15.5405C16.9149 15.5405 19.2601 17.8948 19.2601 20.7939V25H24.9993L24.9999 24.9992L25 24.9976V11.8956C25 11.8989 25.0008 11.8992 25 11.8956C24.9966 11.8812 24.9788 11.8095 24.8948 11.6742C24.8108 11.5389 24.7005 11.4037 24.588 11.2772L15.004 3.43645L14.9714 3.40439C14.4228 2.86484 13.5451 2.86525 12.997 3.40534L12.9644 3.43744L3.35246 11.3159Z" fill="#000000" fill-rule="evenodd"/></svg>HOMEPAGE</div></a>
+                <a class="grid-nav-item-link" href="https://lucabonetti.altervista.org/XERP/MAGAZZINO/"><div class="grid-nav-item"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" width="800px" height="800px" fill="#000000" version="1.1" id="Layer_1" xml:space="preserve"><g><g><path d="M464.038,258.322h-17.513v-26.005c0-4.397-3.563-7.961-7.961-7.961c-4.397,0-7.961,3.563-7.961,7.961v26.005H285.19V112.908h145.414v76.951c0,4.397,3.563,7.961,7.961,7.961c4.397,0,7.961-3.563,7.961-7.961v-84.912c0-4.397-3.563-7.961-7.961-7.961h-2.175l18.206-53.823c1.39-4.111-0.888-8.704-4.99-10.092L353.083,0.422c-4.167-1.41-8.683,0.825-10.092,4.99l-30.203,89.286l-2.237-49.549c-0.196-4.344-3.977-7.764-8.311-7.593l-82.473,3.723L213.7,18.024c-1.109-4.253-5.452-6.807-9.712-5.692l-98.596,25.721c-4.254,1.109-6.803,5.458-5.692,9.712l12.84,49.222h-5.138c-4.397,0-7.961,3.563-7.961,7.961v153.374H47.963c-4.397,0-7.961,3.563-7.961,7.961v50.948c0,4.397,3.563,7.961,7.961,7.961h17.513v178.848c0,4.397,3.563,7.961,7.961,7.961h365.127c4.397,0,7.961-3.563,7.961-7.961V325.191h17.513c4.397,0,7.961-3.563,7.961-7.961v-50.948C471.999,261.886,468.435,258.322,464.038,258.322z M355.521,18.055l81.441,27.548l-17.381,51.384h-90.76L355.521,18.055z M295.006,53.82l1.949,43.167h-86.062l-1.774-39.289L295.006,53.82z M200.304,29.747l3.201,12.268c-1.813,0.082-3.746-0.011-5.469,0.629c-3.206,1.191-5.336,4.401-5.182,7.819l2.101,46.524h-65.961L117.115,51.45L200.304,29.747z M115.363,180.838h85.975v35.027h-85.975V180.838z M269.269,309.27H188.07c-4.397,0-7.961,3.563-7.961,7.961c0,4.397,3.563,7.961,7.961,7.961h81.198v170.888H81.398v-43.518h127.9c4.397,0,7.961-3.563,7.961-7.961v-50.948c0-4.397-3.563-7.961-7.961-7.961h-127.9v-60.501h64.216c4.397,0,7.961-3.563,7.961-7.961c0-4.397-3.563-7.961-7.961-7.961h-89.69v-35.027h213.344V309.27z M81.398,436.639v-35.027h119.94v35.027H81.398z M269.269,258.322H115.363v-26.535h93.935c4.397,0,7.961-3.563,7.961-7.961v-50.948c0-4.397-3.563-7.961-7.961-7.961h-93.935v-52.009h153.905V258.322z M430.604,496.079H285.19V325.191h145.414V496.079z M456.078,309.27H285.19v-35.027h170.888V309.27z"/></g></g><g><g><path d="M404.599,343.235h-93.404c-4.397,0-7.961,3.563-7.961,7.961v25.474c0,13.754,11.19,24.943,24.943,24.943h59.439c13.754,0,24.943-11.189,24.943-24.943v-25.474C412.56,346.798,408.996,343.235,404.599,343.235z M396.638,376.669c0,4.975-4.047,9.022-9.022,9.022h-59.439c-4.975,0-9.022-4.047-9.022-9.022v-17.513h77.483V376.669z"/></g></g><g><g><path d="M404.599,130.952h-93.404c-4.397,0-7.961,3.563-7.961,7.961v25.474c0,13.754,11.189,24.943,24.943,24.943h59.439c13.754,0,24.943-11.189,24.943-24.943v-25.474C412.56,134.515,408.996,130.952,404.599,130.952z M396.638,164.386c0,4.975-4.047,9.022-9.022,9.022h-59.439c-4.975,0-9.022-4.047-9.022-9.022v-17.513h77.483V164.386z"/></g></g><g><g><path d="M175.333,130.952h-42.457c-4.397,0-7.961,3.563-7.961,7.961c0,4.397,3.563,7.961,7.961,7.961h42.457c4.397,0,7.961-3.563,7.961-7.961C183.294,134.515,179.73,130.952,175.333,130.952z"/></g></g><g><g><path d="M158.351,351.726h-50.948c-4.397,0-7.961,3.563-7.961,7.961c0,4.397,3.563,7.961,7.961,7.961h50.948c4.397,0,7.961-3.563,7.961-7.961C166.311,355.289,162.747,351.726,158.351,351.726z"/></g></g><g><g><path d="M209.299,351.726h-25.474c-4.397,0-7.961,3.563-7.961,7.961c0,4.397,3.563,7.961,7.961,7.961h25.474c4.397,0,7.961-3.563,7.961-7.961C217.259,355.289,213.695,351.726,209.299,351.726z"/></g></g></svg>MAGAZZINO</div></a>
+                <a class="grid-nav-item-link" href="https://lucabonetti.altervista.org/XERP/ORDINI/"><div class="grid-nav-item"><svg width="800px" height="800px" viewBox="0 0 1024 1024" fill="#000000" class="icon"  version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M300 462.4h424.8v48H300v-48zM300 673.6H560v48H300v-48z" fill="" /><path d="M818.4 981.6H205.6c-12.8 0-24.8-2.4-36.8-7.2-11.2-4.8-21.6-11.2-29.6-20-8.8-8.8-15.2-18.4-20-29.6-4.8-12-7.2-24-7.2-36.8V250.4c0-12.8 2.4-24.8 7.2-36.8 4.8-11.2 11.2-21.6 20-29.6 8.8-8.8 18.4-15.2 29.6-20 12-4.8 24-7.2 36.8-7.2h92.8v47.2H205.6c-25.6 0-47.2 20.8-47.2 47.2v637.6c0 25.6 20.8 47.2 47.2 47.2h612c25.6 0 47.2-20.8 47.2-47.2V250.4c0-25.6-20.8-47.2-47.2-47.2H725.6v-47.2h92.8c12.8 0 24.8 2.4 36.8 7.2 11.2 4.8 21.6 11.2 29.6 20 8.8 8.8 15.2 18.4 20 29.6 4.8 12 7.2 24 7.2 36.8v637.6c0 12.8-2.4 24.8-7.2 36.8-4.8 11.2-11.2 21.6-20 29.6-8.8 8.8-18.4 15.2-29.6 20-12 5.6-24 8-36.8 8z" fill="" /><path d="M747.2 297.6H276.8V144c0-32.8 26.4-59.2 59.2-59.2h60.8c21.6-43.2 66.4-71.2 116-71.2 49.6 0 94.4 28 116 71.2h60.8c32.8 0 59.2 26.4 59.2 59.2l-1.6 153.6z m-423.2-47.2h376.8V144c0-6.4-5.6-12-12-12H595.2l-5.6-16c-11.2-32.8-42.4-55.2-77.6-55.2-35.2 0-66.4 22.4-77.6 55.2l-5.6 16H335.2c-6.4 0-12 5.6-12 12v106.4z" fill="" /></svg>ORDINI</div></a>
+                <a class="grid-nav-item-link" href="https://lucabonetti.altervista.org/XERP/GESTIONE/"><div class="grid-nav-item"><svg width="800px" height="800px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M600.704 64a32 32 0 0 1 30.464 22.208l35.2 109.376c14.784 7.232 28.928 15.36 42.432 24.512l112.384-24.192a32 32 0 0 1 34.432 15.36L944.32 364.8a32 32 0 0 1-4.032 37.504l-77.12 85.12a357.12 357.12 0 0 1 0 49.024l77.12 85.248a32 32 0 0 1 4.032 37.504l-88.704 153.6a32 32 0 0 1-34.432 15.296L708.8 803.904c-13.44 9.088-27.648 17.28-42.368 24.512l-35.264 109.376A32 32 0 0 1 600.704 960H423.296a32 32 0 0 1-30.464-22.208L357.696 828.48a351.616 351.616 0 0 1-42.56-24.64l-112.32 24.256a32 32 0 0 1-34.432-15.36L79.68 659.2a32 32 0 0 1 4.032-37.504l77.12-85.248a357.12 357.12 0 0 1 0-48.896l-77.12-85.248A32 32 0 0 1 79.68 364.8l88.704-153.6a32 32 0 0 1 34.432-15.296l112.32 24.256c13.568-9.152 27.776-17.408 42.56-24.64l35.2-109.312A32 32 0 0 1 423.232 64H600.64zm-23.424 64H446.72l-36.352 113.088-24.512 11.968a294.113 294.113 0 0 0-34.816 20.096l-22.656 15.36-116.224-25.088-65.28 113.152 79.68 88.192-1.92 27.136a293.12 293.12 0 0 0 0 40.192l1.92 27.136-79.808 88.192 65.344 113.152 116.224-25.024 22.656 15.296a294.113 294.113 0 0 0 34.816 20.096l24.512 11.968L446.72 896h130.688l36.48-113.152 24.448-11.904a288.282 288.282 0 0 0 34.752-20.096l22.592-15.296 116.288 25.024 65.28-113.152-79.744-88.192 1.92-27.136a293.12 293.12 0 0 0 0-40.256l-1.92-27.136 79.808-88.128-65.344-113.152-116.288 24.96-22.592-15.232a287.616 287.616 0 0 0-34.752-20.096l-24.448-11.904L577.344 128zM512 320a192 192 0 1 1 0 384 192 192 0 0 1 0-384zm0 64a128 128 0 1 0 0 256 128 128 0 0 0 0-256z"/></svg>GESTIONE</div></a>
             </section>
-        <button class="menu-button">MENU</button>
-        `
-        const xmenu = this.shadowRoot.querySelector('.grid-container');
+
+            <div class="menu-button"><svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.6316 7.63137C15.2356 7.23535 15.0376 7.03735 14.9634 6.80902C14.8981 6.60817 14.8981 6.39183 14.9634 6.19098C15.0376 5.96265 15.2356 5.76465 15.6316 5.36863L18.47 2.53026C17.7168 2.18962 16.8806 2 16.0002 2C12.6865 2 10.0002 4.68629 10.0002 8C10.0002 8.49104 10.0592 8.9683 10.1705 9.42509C10.2896 9.91424 10.3492 10.1588 10.3387 10.3133C10.3276 10.4751 10.3035 10.5612 10.2289 10.7051C10.1576 10.8426 10.0211 10.9791 9.74804 11.2522L3.50023 17.5C2.6718 18.3284 2.6718 19.6716 3.50023 20.5C4.32865 21.3284 5.6718 21.3284 6.50023 20.5L12.748 14.2522C13.0211 13.9791 13.1576 13.8426 13.2951 13.7714C13.4391 13.6968 13.5251 13.6727 13.6869 13.6616C13.8414 13.651 14.086 13.7106 14.5751 13.8297C15.0319 13.941 15.5092 14 16.0002 14C19.3139 14 22.0002 11.3137 22.0002 8C22.0002 7.11959 21.8106 6.28347 21.47 5.53026L18.6316 8.36863C18.2356 8.76465 18.0376 8.96265 17.8092 9.03684C17.6084 9.1021 17.3921 9.1021 17.1912 9.03684C16.9629 8.96265 16.7649 8.76465 16.3689 8.36863L15.6316 7.63137Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+            <div id="popup-overlay" class="hidden"></div>
+            <div id="popup-preferenze" class="hidden">
+                <h3>PREFERENZE</h3>
+                <div id="preferenza-menu">
+                    <h4>BARRA DI NAVIGAZIONE</h4>
+                    <input type="radio" id="radio-orizzontale" name="orientamento" value="orizzontale" ${xmenuStorage === 'orizzontale' ? 'checked' : ''} />
+                    <label for="radio-orizzontale">Orizzontale</label>
+                    <input type="radio" id="radio-verticale" name="orientamento" value="verticale" ${xmenuStorage === 'verticale' ? 'checked' : ''} />
+                    <label for="radio-verticale">Verticale</label>
+                </div>
+                <div id="button-popup">
+                    <button id="close-popup">Chiudi</button>
+                    <button id="save-popup">Salva</button>
+                </div>
+            </div>
+        </div>
+        `;
+
+        const xmenu = this.shadowRoot.querySelector('.xmenu');
         const button = this.shadowRoot.querySelector('.menu-button');
-        button.addEventListener('click', ()=>{
-            if(xmenu.classList.contains('hidden')){
-                xmenu.classList.remove('hidden');
-            }     
-            else{
-                xmenu.classList.add('hidden');
-            }       
-        })
+        const popupOverlay = this.shadowRoot.getElementById('popup-overlay');
+        const popupContent = this.shadowRoot.getElementById('popup-preferenze');
+        const closePopupButton = this.shadowRoot.getElementById('close-popup');
+        const savePopupButton = this.shadowRoot.getElementById('save-popup');
+        const toggleXmenu = this.shadowRoot.getElementById('toggle-xmenu');
+
+        // Mostra il popup e l'overlay
+        button.addEventListener('click', () => {
+            popupOverlay.classList.remove('hidden');
+            popupContent.classList.remove('hidden');
+        });
+
+        toggleXmenu.addEventListener('click', () => {
+            if (xmenu.classList.contains("verticale")) {
+                xmenu.classList.toggle("chiuso");
+            }
+        });
+
+        // Funzione riutilizzabile per nascondere il popup
+        const nascondiPopup = () => {
+            popupOverlay.classList.add('hidden');
+            popupContent.classList.add('hidden');
+        };
+
+        closePopupButton.addEventListener('click', nascondiPopup);
+
+        // Gestione del salvataggio preferenze
+        savePopupButton.addEventListener('click', () => {
+            // Seleziona il radio button attualmente spuntato
+            const selectedRadio = this.shadowRoot.querySelector('input[name="orientamento"]:checked');
+            
+            if (selectedRadio) {
+                const nuovoOrientamento = selectedRadio.value; // Sarà 'orizzontale' o 'verticale'
+                
+                // Salva la scelta nel browser
+                localStorage.setItem("xmenu", nuovoOrientamento);
+                
+                // Aggiorna dinamicamente le classi sulla griglia senza ricaricare la pagina
+                if (nuovoOrientamento === "verticale") {
+                    xmenu.classList.remove("orizzontale");
+                    xmenu.classList.add("verticale");
+                    toggleXmenu.classList.remove("hidden");
+                } else {
+                    xmenu.classList.remove("verticale");
+                    xmenu.classList.add("orizzontale");
+                    toggleXmenu.classList.add("hidden");
+                }
+            }
+            
+            // Chiude il popup dopo aver salvato
+            nascondiPopup();
+        });
     }  
 }
