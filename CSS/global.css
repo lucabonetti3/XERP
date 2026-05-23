@@ -1,4 +1,51 @@
 body{
-    background-color: rgb(182, 182, 182);
-    font-family: 'Arial';
+    margin: 0px;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 80px 1fr 60px;
+    grid-template-areas: 
+    "header header"
+    "sidebar main"
+    "footer footer";
+    height: 100vh;
+}
+
+.grid-container:has(x-sidebar.hidden) { /* modifica il grid template togliendo laprima frazione di schermo quando la x sidebar HAS classe hidden */
+    grid-template-columns: 0px 1fr;
+}
+
+
+.grid-container > *:defined { /* Forza tutti i web components definiti a riempire lo spazio assegnato */
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+     
+.grid-item{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+x-header {
+    grid-area: header;
+    background-color: rgb(252, 208, 193);
+}
+
+x-sidebar{
+    grid-area: sidebar;
+    background-color: rgb(155, 227, 166);
+}
+
+.main{
+    grid-area: main;
+    background-color: rgb(248, 217, 177);
+}
+
+.footer{
+    grid-area: footer;
+    background-color: cornflowerblue;
 }
