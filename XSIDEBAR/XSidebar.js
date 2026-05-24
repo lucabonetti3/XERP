@@ -16,7 +16,7 @@ export class XSidebar extends HTMLElement {
             <nav class="x-sidebar-nav">
                 <a class="nav-item-link" href="https://lucabonetti.altervista.org/XERP/">
                     <div class="nav-item">
-                        <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M16.3382 1.94393L25.9705 9.82424L26.0201 9.8788C26.1701 10.0437 26.3998 10.3064 26.5943 10.6198C26.7798 10.9189 27 11.3686 27 11.8956V24.9976C27 26.1013 26.1068 27 25 27H18.7601C17.9317 27 17.2601 26.3284 17.2601 25.5V20.7939C17.2601 18.9948 15.8058 17.5405 14.0168 17.5405C12.2279 17.5405 10.7735 18.9948 10.7735 20.7939V25.5C10.7735 26.3284 10.102 27 9.27354 27H3C1.89318 27 1 26.1013 1 24.9976V11.7425C1 11.0901 1.36299 10.564 1.56986 10.3028C1.69049 10.1505 1.80873 10.0264 1.89631 9.94036C1.9407 9.89677 1.97877 9.86147 2.0074 9.83565C2.02175 9.8227 2.03384 9.81204 2.0433 9.80382L2.05551 9.79329L2.06007 9.7894L2.06278 9.7871C2.06278 9.7871 2.06356 9.78646 2.7075 10.5515L2.06356 9.78646L2.07352 9.77807L11.6288 1.94617C12.9452 0.685478 15.0206 0.684487 16.3382 1.94393ZM3.35246 11.3159L3.3468 11.3209C3.33673 11.33 3.31953 11.3459 3.29759 11.3674C3.25251 11.4117 3.19388 11.4736 3.13764 11.5446C3.07966 11.6178 3.038 11.6834 3.01374 11.7344C3.00661 11.7494 3.00238 11.7602 3 11.767V24.9976L3.00006 24.9992L3.0007 25H8.77354V20.7939C8.77354 17.8948 11.1188 15.5405 14.0168 15.5405C16.9149 15.5405 19.2601 17.8948 19.2601 20.7939V25H24.9993L24.9999 24.9992L25 24.9976V11.8956C25 11.8989 25.0008 11.8992 25 11.8956C24.9966 11.8812 24.9788 11.8095 24.8948 11.6742C24.8108 11.5389 24.7005 11.4037 24.588 11.2772L15.004 3.43645L14.9714 3.40439C14.4228 2.86484 13.5451 2.86525 12.997 3.40534L12.9644 3.43744L3.35246 11.3159Z" fill="#000000" fill-rule="evenodd"/></svg>
+                    <svg width="800px" height="800px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="none"/><path d="M24,7,40,21.6V40H33V25.9a2,2,0,0,0-2-2H17a2,2,0,0,0-2,2V40H8V21.6L24,7m0-5a1.1,1.1,0,0,0-.7.3L4.6,19.2A2,2,0,0,0,4,20.7V44H19V27.9H29V44H44V20.7a2,2,0,0,0-.6-1.5L24.7,2.3A1.1,1.1,0,0,0,24,2Z"/></svg>
                         HOMEPAGE
                     </div>
                 </a>
@@ -42,50 +42,7 @@ export class XSidebar extends HTMLElement {
                     </div>
                 </a>
             </nav>
-
-            <div class="pref-btn-container">
-                <button id="open-popup-btn" class="pref-btn">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.6316 7.63137C15.2356 7.23535 15.0376 7.03735 14.9634 6.80902C14.8981 6.60817 14.8981 6.39183 14.9634 6.19098C15.0376 5.96265 15.2356 5.76465 15.6316 5.36863L18.47 2.53026C17.7168 2.18962 16.8806 2 16.0002 2C12.6865 2 10.0002 4.68629 10.0002 8C10.0002 8.49104 10.0592 8.9683 10.1705 9.42509C10.2896 9.91424 10.3492 10.1588 10.3387 10.3133C10.3276 10.4751 10.3035 10.5612 10.2289 10.7051C10.1576 10.8426 10.0211 10.9791 9.74804 11.2522L3.50023 17.5C2.6718 18.3284 2.6718 19.6716 3.50023 20.5C4.32865 21.3284 5.6718 21.3284 6.50023 20.5L12.748 14.2522C13.0211 13.9791 13.1576 13.8426 13.2951 13.7714C13.4391 13.6968 13.5251 13.6727 13.6869 13.6616C13.8414 13.651 14.086 13.7106 14.5751 13.8297C15.0319 13.941 15.5092 14 16.0002 14C19.3139 14 22.0002 11.3137 22.0002 8C22.0002 7.11959 21.8106 6.28347 21.47 5.53026L18.6316 8.36863C18.2356 8.76465 18.0376 8.96265 17.8092 9.03684C17.6084 9.1021 17.3921 9.1021 17.1912 9.03684C16.9629 8.96265 16.7649 8.76465 16.3689 8.36863L15.6316 7.63137Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-            </div>
-
-            <div id="popup-overlay" class="hidden"></div>
-            <div id="popup-preferenze" class="hidden">
-                <h3>PREFERENZE</h3>
-                <div id="preferenza-tema">
-                    <h4>TEMA</h4>
-                </div>
-                <div id="button-popup">
-                    <button id="close-popup">Chiudi</button>
-                    <button id="save-popup">Salva</button>
-                </div>
-            </div>
         </div>
         `;
-
-        // Gestione Elementi e Listener del Popup (Corretti!)
-        const openBtn = this.shadowRoot.getElementById('open-popup-btn');
-        const popupOverlay = this.shadowRoot.getElementById('popup-overlay');
-        const popupContent = this.shadowRoot.getElementById('popup-preferenze');
-        const closeBtn = this.shadowRoot.getElementById('close-popup');
-        const saveBtn = this.shadowRoot.getElementById('save-popup');
-
-        // Mostra il popup
-        openBtn.addEventListener('click', () => {
-            popupOverlay.classList.remove('hidden');
-            popupContent.classList.remove('hidden');
-        });
-
-        // Chiudi il popup (tasto Chiudi)
-        closeBtn.addEventListener('click', () => {
-            popupOverlay.classList.add('hidden');
-            popupContent.classList.add('hidden');
-        });
-
-        // Salva il popup (tasto Salva)
-        saveBtn.addEventListener('click', () => {
-            popupOverlay.classList.add('hidden');
-            popupContent.classList.add('hidden');
-        });
     }  
 }

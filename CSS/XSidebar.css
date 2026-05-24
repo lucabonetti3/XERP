@@ -10,7 +10,7 @@
     justify-content: space-between; /* Spinge la navigazione in alto e le preferenze in fondo */
     height: 100%;
     width: 100%;
-    background-color: #db6c34;
+    background-color: var(--bg-sidebar);
     box-sizing: border-box;
 }
 
@@ -22,7 +22,7 @@
 
 .nav-item-link {
     text-decoration: none;
-    color: black;
+    color: var(--txt-pagina);
     width: 100%;
 }
 
@@ -38,123 +38,29 @@
 }
 
 .nav-item:hover {
-    background-color: #d84a03; 
+    background-color: var(--hover-pagina);
 }
 
 .nav-item svg {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.2s ease;
-}
-
-.nav-item:hover svg {
-    transform: scale(1.1); /* zoom sull'icona al passaggio */
-}
-
-.pref-btn-container {
-    padding: 20px;
-    display: flex;
-    justify-content: center; /* Centra il bottone orizzontalmente nella sidebar */
-}
-
-.pref-btn{
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s ease;
-}
-
-.pref-btn:hover {
-    background-color: #d84a03;
-}
-
-.pref-btn svg {
-    width: 28px;
-    height: 28px;
-}
-
-
-#popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px);
-    z-index: 998; /* Sotto il popup ma sopra la pagina */
-}
-
-/* Il rettangolo bianco del popup */
-#popup-preferenze {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 400px;
-    background-color: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    z-index: 999; /* Sopra a tutto il resto */
-    color: black;
-    font-family: sans-serif;
-}
-
-#popup-preferenze h3 {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-}
-
-#preferenza-tema h4 {
-    margin: 0 0 15px 0;
-    color: #555;
-}
-
-/* Contenitore dei bottoni interni al popup */
-#button-popup {
-    display: flex;
-    justify-content: flex-end; /* Allinea i bottoni a destra */
-    gap: 12px;
-    margin-top: 25px;
-}
-
-#close-popup, #save-popup {
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-#close-popup {
-    background-color: #e0e0e0;
-    color: #333;
-}
-
-#close-popup:hover {
-    background-color: #d5d5d5;
-}
-
-#save-popup {
-    background-color: #db6c34;
-    color: white;
-}
-
-#save-popup:hover {
-    background-color: #d84a03;
+    width: 30px;
+    height: 30px;
+    fill: var(--txt-pagina);
 }
 
 .hidden {
     display: none !important;
+}
+
+
+@media (max-width: 768px) {
+
+    .nav-item{
+        font-size: 14px;
+    }
+
+    .nav-item svg {
+    width: 20px;
+    height: 20px;
+    }
+
 }

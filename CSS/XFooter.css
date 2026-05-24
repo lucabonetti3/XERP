@@ -1,0 +1,141 @@
+.pref-btn-container {
+    padding-right: 20px;
+    display: flex;
+    justify-content: right;
+}
+
+.pref-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+.pref-btn:hover {
+    background-color: var(--hover-pagina);
+}
+
+.pref-btn svg {
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    stroke: var(--txt-pagina);
+}
+
+#popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 998; /* Sotto il popup ma sopra la pagina */
+}
+
+#popup-preferenze {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background-color: var(--bg-pagina);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 999; /* Sopra a tutto il resto */
+    color: black;
+    font-family: sans-serif;
+}
+
+#popup-preferenze h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#preferenza-tema h4 {
+    color: var(--txt-pagina);
+    margin-right: 40px;
+}
+
+#preferenza-tema{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#preferenza-tema button{
+    border-radius: 6px;
+    height: 40px; 
+    width: 120px;
+    margin-right: 10px;     
+    color: var(--txt-pagina);
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--bg-pagina);
+}
+
+#preferenza-tema button svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--txt-pagina)
+}
+
+/* Contenitore dei bottoni interni al popup */
+#button-popup {
+    display: flex;
+    justify-content: flex-end; /* Allinea i bottoni a destra */
+    gap: 12px;
+    margin-top: 25px;
+}
+
+#close-popup, #save-popup {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#close-popup {
+    background-color: var(--bg-pagina);
+    color: var(--txt-pagina);
+}
+
+#close-popup:hover {
+    background-color: var(--hover-pagina);
+}
+
+#save-popup {
+    background-color: var(--bg-pagina);
+    color: var(--txt-pagina);
+}
+
+#save-popup:hover {
+    background-color: var(--hover-pagina);
+}
+
+#preferenza-tema button.btn-active {
+    background-color: var(--active-pagina);
+    color: var(--txt-pagina);
+}
+
+.hidden{
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+   #popup-preferenze {
+        max-width: 300px;
+    }
+}

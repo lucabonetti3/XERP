@@ -1,3 +1,37 @@
+:root {
+    --color-primary: #db8960;
+    --color-primary-hover: #d84a03;
+    --color-dark: #333333;
+    --color-light: #e2e2e2;
+    --color-light-hover: #9c9c9c;
+    --color-light-active: #9c9c9c;
+    --color-dark-hover: #9c9c9c;
+    --color-dark-active: #9c9c9c;
+    --color-light-header: #c4c1c1;
+    --color-light-sidebar: #c4c1c1;
+    --color-light-footer: #c4c1c1;
+    --color-dark-header: #464646;
+    --color-dark-sidebar: #464646;
+    --color-dark-footer: #464646;
+
+    --bg-pagina: var(--color-light);
+    --txt-pagina: var(--color-dark);
+    --hover-pagina: var(--color-light-hover);
+    --active-pagina: var(--color-light-active);
+    --bg-header: var(--color-light-header);
+    --bg-sidebar: var(--color-light-sidebar);
+    --bg-footer: var(--color-light-footer);
+}
+
+html.dark-mode{
+    --bg-pagina: var(--color-dark);
+    --txt-pagina: var(--color-light);
+    --hover-pagina: var(--color-dark-hover);
+    --active-pagina: var(--color-dark-active);
+    --bg-header: var(--color-dark-header);
+    --bg-sidebar: var(--color-dark-sidebar);
+    --bg-footer: var(--color-dark-footer);
+}
 body{
     margin: 0px;
 }
@@ -32,20 +66,29 @@ body{
 
 x-header {
     grid-area: header;
-    background-color: rgb(252, 208, 193);
+    background-color: var(--bg-pagina);
 }
 
 x-sidebar{
     grid-area: sidebar;
-    background-color: rgb(155, 227, 166);
+    background-color: var(--bg-pagina);
 }
 
 .main{
     grid-area: main;
-    background-color: rgb(248, 217, 177);
+    background-color: var(--bg-pagina);
+    color: var(--txt-pagina);
 }
 
-.footer{
+x-footer{
     grid-area: footer;
-    background-color: cornflowerblue;
+    background-color: var(--bg-footer);
+}
+
+
+@media (max-width: 768px) {
+    .grid-container{
+        grid-template-columns: 160px 1fr;
+    }
+    
 }

@@ -5,6 +5,9 @@ customElements.define('x-header', XHeader);
 import { XSidebar } from "./XSIDEBAR/XSidebar.js";
 customElements.define('x-sidebar', XSidebar);
 
+import { XFooter } from "./XFOOTER/XFooter.js";
+customElements.define('x-footer', XFooter);
+
 // LISTENER TOGGLE SIDEBAR
 const header = document.querySelector('x-header');
 const sidebar = document.querySelector('x-sidebar');
